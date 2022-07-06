@@ -1,4 +1,12 @@
-<div class="display-content"  *ngFor="let m of calculateResult" >
+<!-- <div class="display-content"  *ngFor="let m of calculateResult" >
 {{m}}
 awd
+</div> -->
+
+<div *ngIf="$vm | async as calculatedResult">
+    
+    <p *ngFor="let result of calculatedResult">
+        <span>{{result}}</span>
+        <br>
+    </p>    
 </div>

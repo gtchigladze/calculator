@@ -9,9 +9,14 @@ import { CalculatorServiceService } from 'src/app/service/calculator-service.ser
 export class DisplayComponent implements OnInit {
 calculateResult: any[] = []
 
+  $vm = this.service.calculateResult;  
+
   constructor(private service: CalculatorServiceService) { }
 
   ngOnInit(): void {
+
+    
+
   }
   getResult() {
   return this.service.getResult().subscribe(res => this.calculateResult= res)
