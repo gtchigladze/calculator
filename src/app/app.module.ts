@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { DisplayModule } from './display/display.module';
-
+import { ServiceModule } from './service/service.module';
 import { TerminalModule } from './terminal/terminal.module';
 
 @NgModule({
@@ -14,7 +13,8 @@ import { TerminalModule } from './terminal/terminal.module';
     BrowserModule, 
     DisplayModule,
     BrowserModule, 
-    TerminalModule
+    TerminalModule,
+    ServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
