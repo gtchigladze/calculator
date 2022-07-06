@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalculatorServiceService } from 'src/app/service/calculator-service.service';
 
 @Component({
   selector: 'app-terminal',
@@ -7,14 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TerminalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: CalculatorServiceService) { }
 
-  value!: string
+  value: string = '1+2'
 
   ngOnInit(): void {
   }
 getTerminalNumber(){
-  // use service
+  this.service.addResultArray(this.value)
+  console.log(this.value)
 }
 
 resetTerminal(){

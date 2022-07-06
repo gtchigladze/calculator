@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalculatorServiceService } from 'src/app/service/calculator-service.service';
 
 @Component({
   selector: 'app-display',
@@ -8,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class DisplayComponent implements OnInit {
 calculateResult: any[] = []
 
-  constructor() { }
+  constructor(private service: CalculatorServiceService) { }
 
   ngOnInit(): void {
   }
   getResult() {
-    // use in service 
+  return this.service.getResult().subscribe(res => this.calculateResult= res)
   }
   clearResult() {
     // clear displaygit 
