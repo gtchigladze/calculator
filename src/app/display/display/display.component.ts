@@ -19,7 +19,7 @@ calculateResult: any[] = []
 
   }
   getResult() {
-  return this.service.getResult().subscribe(res => this.calculateResult= res)
+  return this.service.getResult().subscribe(res => {this.calculateResult= res, console.log(`res-display  ${res}`)})
   }
   clearResult() {
     // clear displaygit 
