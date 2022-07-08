@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { BehaviorSubject, findIndex, from, Observable, ReplaySubject, shareReplay } from 'rxjs';
 
 @Injectable({
@@ -9,10 +9,24 @@ export class CalculatorServiceService {
   // calculateResult: string[] = []
   private subject = new BehaviorSubject<any>([]);
 
-  calculateResult = new BehaviorSubject(['50', '20'] );
+  // @Output() keyBoard = new EventEmitter<string[]>();
+  // @Output() operator = new EventEmitter<string[]>();
+
+
+  calculateResult = new BehaviorSubject(['Display'] );
+  teminalInput = new BehaviorSubject(['']);
+
   // data: Observable<string[]> = this.calculateResult.asObservable();
 
   constructor() { }
+
+
+  // keyBoardOperator(msg: string[]){
+  //   this.keyBoard.emit(msg)
+  // }
+  // keyOperator(msg:string[]){
+  //        this.operator.emit(msg)
+  // }
 
   calculateExpression(expression: string[]) { 
     let operandsArray = [...expression];
@@ -46,6 +60,7 @@ export class CalculatorServiceService {
 
     const firstDivide = Number(splitDivide[0]);
     const secondDivide = Number(splitDivide[1]);
+
   if (splitPlus.length != 0) {
    if(firstOperand && secondOperand){
     result.push(firstOperand + secondOperand);

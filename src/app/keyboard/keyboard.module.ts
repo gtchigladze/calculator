@@ -10,6 +10,7 @@ import { KeyboardComponent } from './keyboard/keyboard.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[KeyboardComponent]
 })
 export class KeyboardModule { }

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TerminalComponent } from './terminal/terminal.component';
 import { FormsModule } from '@angular/forms';
+import { KeyboardModule } from '../keyboard/keyboard.module';
+import { KeyboardComponent } from '../keyboard/keyboard/keyboard.component';
 
 
 
@@ -10,7 +12,7 @@ import { FormsModule } from '@angular/forms';
     TerminalComponent
   ],
   imports: [
-    CommonModule, FormsModule
+    CommonModule, FormsModule,
   ],
   exports:[TerminalComponent]
 })
