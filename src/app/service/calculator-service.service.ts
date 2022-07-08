@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, from, Observable, ReplaySubject, shareReplay } from 'rxjs';
+import { BehaviorSubject, findIndex, from, Observable, ReplaySubject, shareReplay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,18 +16,29 @@ export class CalculatorServiceService {
 
   calculateExpression(expression: string[]) {
     // console.log(expression);  
+    let operandsArray = [...expression];
+    let operand = '';
     
     let result = [];
 
-    const firstOperand = Number(expression[0]);
-  const operationType = expression[1];
-  const secondOperand = Number(expression[2]);
+    for (let i = 0; i < operandsArray.length; i++) {
+      if (operandsArray[i] === ' ') {
+        continue;
+      }
+      operand += operandsArray[i];
+      console.log(`operand ${operand}`)
+    }
+    let split = operand.split('+')
+    console.log(`split ${operand}`);
 
-  if (operationType === '+') {
+    const firstOperand = Number(split[0]);
+    const secondOperand = Number(split[1]);
+  if (split.length != 0) {
     // return firstOperand + secondOperand;
-    result.push(firstOperand + secondOperand);
+   result.push(firstOperand + secondOperand);
+  
   } 
-
+console.log(result)
   // if (operationType === '-') {
   //   return firstOperand - secondOperand;
   // }
@@ -36,6 +47,8 @@ export class CalculatorServiceService {
     
   }
 
+
+  
 
 // addResultArray(result: string){
 //   this.subject.next(this.calculateResult.push(result))
@@ -47,3 +60,30 @@ return  this.subject
 
 
 }
+
+
+
+// function m(str) {
+//   let split = str.split('+');
+//   const firstOperand = Number(split[0]);
+//   // const operationType = split[1];
+//   const secondOperand = Number(split[1]);
+//   if (split.length != 0) {
+//     return firstOperand + secondOperand;
+//   }
+// }
+// console.log(m('5 + 10'));
+
+
+
+// function m(str:string[]) {
+// let findIndex = str.findIndex('+')
+//   let split = str.split('+');
+//   const firstOperand = Number(split[0]);
+//   // const operationType = split[1];
+//   const secondOperand = Number(split[1]);
+//   if (split.length != 0) {
+//     return firstOperand + secondOperand;
+//   }
+// }
+// console.log(m('5 + 10'));
