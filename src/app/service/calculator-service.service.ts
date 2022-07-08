@@ -14,8 +14,7 @@ export class CalculatorServiceService {
 
   constructor() { }
 
-  calculateExpression(expression: string[]) {
-    // console.log(expression);  
+  calculateExpression(expression: string[]) { 
     let operandsArray = [...expression];
     let operand = '';
     
@@ -26,24 +25,55 @@ export class CalculatorServiceService {
         continue;
       }
       operand += operandsArray[i];
-      console.log(`operand ${operand}`)
+    
     }
-    let split = operand.split('+')
-    console.log(`split ${operand}`);
 
-    const firstOperand = Number(split[0]);
-    const secondOperand = Number(split[1]);
-  if (split.length != 0) {
-    // return firstOperand + secondOperand;
-   result.push(firstOperand + secondOperand);
-  
+    let splitPlus = operand.split('+')
+    let splitMultiplication = operand.split('*')
+    let splitMinus = operand.split('-')
+    let splitDivide = operand.split('/')
+
+
+    console.log(`split::: ${splitPlus}`);
+    const firstOperand = Number(splitPlus[0]);
+    const secondOperand = Number(splitPlus[1]);
+
+    const firstMinus = Number(splitMinus[0]);
+    const secondMinus = Number(splitMinus[1]);
+
+    const firstMulti = Number(splitMultiplication[0]);
+    const secondMulti = Number(splitMultiplication[1]);
+
+    const firstDivide = Number(splitDivide[0]);
+    const secondDivide = Number(splitDivide[1]);
+  if (splitPlus.length != 0) {
+   if(firstOperand && secondOperand){
+    result.push(firstOperand + secondOperand);
+   }
   } 
-console.log(result)
-  // if (operationType === '-') {
-  //   return firstOperand - secondOperand;
-  // }
 
-    this.calculateResult.next([String(result)]);
+  if (splitMinus.length != 0) {
+    if(firstMinus && secondMinus){
+     result.push(firstMinus - secondMinus);
+    }
+   }
+
+
+  if (splitMultiplication.length != 0) {
+    if(firstMulti && secondMulti){
+     result.push(firstMulti * secondMulti);
+    }
+   }
+
+   if (splitDivide.length != 0) {
+    if(firstDivide && secondDivide){
+     result.push(firstDivide / secondDivide);
+    }
+   }
+
+   console.log(`result - ${result}`)
+
+  this.calculateResult.next([String(result)]);
     
   }
 
@@ -62,28 +92,3 @@ return  this.subject
 }
 
 
-
-// function m(str) {
-//   let split = str.split('+');
-//   const firstOperand = Number(split[0]);
-//   // const operationType = split[1];
-//   const secondOperand = Number(split[1]);
-//   if (split.length != 0) {
-//     return firstOperand + secondOperand;
-//   }
-// }
-// console.log(m('5 + 10'));
-
-
-
-// function m(str:string[]) {
-// let findIndex = str.findIndex('+')
-//   let split = str.split('+');
-//   const firstOperand = Number(split[0]);
-//   // const operationType = split[1];
-//   const secondOperand = Number(split[1]);
-//   if (split.length != 0) {
-//     return firstOperand + secondOperand;
-//   }
-// }
-// console.log(m('5 + 10'));

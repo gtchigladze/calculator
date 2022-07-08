@@ -35,7 +35,7 @@ export class TerminalComponent implements OnInit {
     // const result =x.reduce((acc:any, curr:any) => acc[0] + curr[2])
     // console.log(result)
     // return ['1', '+', '1'];
-    return [expression[0], expression[1], expression[2]]
+    return [expression]
 
    
   }
