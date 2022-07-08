@@ -16,6 +16,8 @@ export class CalculatorServiceService {
   calculateResult = new BehaviorSubject(['Display'] );
   teminalInput = new BehaviorSubject(['']);
 
+  
+
   // data: Observable<string[]> = this.calculateResult.asObservable();
 
   constructor() { }
@@ -89,6 +91,7 @@ export class CalculatorServiceService {
    console.log(`result - ${result}`)
 
   this.calculateResult.next([String(result)]);
+  
     
   }
 

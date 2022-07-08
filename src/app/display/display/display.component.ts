@@ -1,10 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CalculatorServiceService } from 'src/app/service/calculator-service.service';
 
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',
-  styleUrls: ['./display.component.scss']
+  styleUrls: ['./display.component.scss'],
+  
+  // changeDetection: ChangeDetectionStrategy.OnPush
+
+
 })
 export class DisplayComponent implements OnInit {
 calculateResult: any[] = []

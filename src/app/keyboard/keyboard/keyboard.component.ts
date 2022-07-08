@@ -14,6 +14,8 @@ export class KeyboardComponent implements OnInit {
   operator = ''
   result: string[] = []
 
+  expression:string[] = [];
+
  
 
 
@@ -26,17 +28,24 @@ export class KeyboardComponent implements OnInit {
 
   getNumber(v: string){
 
-    let result = []
-    if(this.waitForSecondNumber)
-    {
-      this.currentNumber = v;
-      this.waitForSecondNumber = false;
-    }else{
-     result.push(this.currentNumber === '0'? this.currentNumber = v: this.currentNumber += v);
+    // let result = []
+    // if(this.waitForSecondNumber)
+    // {
+    //   this.currentNumber = v;
+    //   this.waitForSecondNumber = false;
+    // }else{
+    //  result.push(this.currentNumber === '0'? this.currentNumber = v: this.currentNumber += v);
      
-    }
+    // }
     // console.log(result)
-    this.service.teminalInput.next(result);
+    this.expression.push(v);
+    
+
+    // this.service.teminalInput.next(result);
+
+
+    this.service.teminalInput.next(this.expression);
+
     // const number = this.parseExpression(v)
     // this.service.calculateExpression(number)
     // this.service.keyBoardOperator(result)

@@ -23,8 +23,10 @@ export class TerminalComponent implements OnInit {
     
     const parsetExpresstion = this.parseExpression(operation);
 
-    console.log(parsetExpresstion);
-  console.log(this.operation)
+  //   console.log(parsetExpresstion);
+  // console.log(this.operation)
+
+  console.log('pardes has been called')
 
     this.service.calculateExpression(parsetExpresstion)
     
@@ -54,7 +56,17 @@ export class TerminalComponent implements OnInit {
 
     // this.service.keyBoard.subscribe(data => this.operation += data)
     // this.service.operator.subscribe(data => this.operation = data)
-    this.service.teminalInput.subscribe((input: string[]) => {this.operation = input, console.log(`oooooo ${this.operation}`)})
+    // this.service.teminalInput.subscribe((input: string[]) => {this.operation = input, console.log(`oooooo ${this.operation}`)})
+    this.service.teminalInput.subscribe((input: string[]) => {
+      // this.operation.push(input); console.log('change happened');
+      
+      this.operation = input;
+      
+      // console.log(this.operation);
+
+      
+        this.parseOperation(input.join(''));
+    })
   }
 // getTerminalNumber(){
 //   this.service.addResultArray(this.value)
